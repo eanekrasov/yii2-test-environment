@@ -1,0 +1,14 @@
+concurrent = 1
+
+[[runners]]
+  name = "yii2 test runner"
+  url = "http://git.replica.evorch.ru/ci"
+  token = "cff157a0e1efa4a6aede95847b7f24"
+  limit = 1
+  executor = "docker"
+  environment = ["MYSQL_ALLOW_EMPTY_PASSWORD=1"]
+  [runners.docker]
+    image = "eanekrasov/yii2-test-environment:latest"
+    privileged = true
+    volumes = ["/cache"]
+    services = ["mysql:latest"]
